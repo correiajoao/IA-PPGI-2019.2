@@ -14,6 +14,7 @@ Resolução da questão um.
 </p>
 
 **2º**
+
 Possuindo as regras, fatos e perguntas, abaixo temos o grafo completo da inferência utilizando encadeamento para frente.
 
 Observe que cada nó contém a regra pela qual ele foi derivado e os possíveis fatos/metas concluídos atraves de MP, MT, SD ou SH.
@@ -89,3 +90,47 @@ Histórico de uma consulta realizada utilizando o modelo especificado.</p>
 **8º**
 
 
+**Solução de engenho de inferência, baseado em regras SE ENTÃO.**
+
+Um engenho de inferência baseado em regras SE ENTÃO deve se comportar da seguinte maneira:
+
+* Ler as regras no formato SE ... ENTÃO ...  
+  * Exemplo: Se P Então Q AND K
+* Transformar as regras em expressões lógicas.
+  * Exemplo: P -> Q ^ K
+* Ler um conjunto de Fatos.
+  * Exemplo: S, P, Q
+* Ler uma expressão a ser inferida.
+  * Exemplo: Q ^ K
+  
+ **Encadeamento para frente**
+
+ No encadeamento para frente, partindo do conjunto de fatos:
+ 
+ * Enquanto possível, aplicar em cada regra da base as seguinte substituições:
+   * Modus Pones
+   * Modus Tollens
+   * Siloginsmo hipotético 
+   * Silogismo dedutivo
+   * Outras
+ * Após a aplicação de cada substituição, verificar se os fatos subsidiam a resolução da questão.
+
+ * Se nenhuma substituição é mais passível e a pergunta não é respondida, não é possível resolver a pergunta.
+  
+  **Encadeamento para trás**
+  
+  No encademento para trás, partindo do conjunto de objetivos.
+  
+ * Enquanto possível, aplicar em cada regra da base as seguinte substituições, buscando por novas metas que devem ser satisfeitas.
+   * Modus Pones
+   * Modus Tollens
+   * Siloginsmo hipotético 
+   * Silogismo dedutivo
+   * Outras
+ * Após a aplicação de cada substituição, verifica-se se o conjunto de fatos iniciais pertence a bases, se sim a pergunta pode ser respondida.
+ 
+ * Se nenhuma substituição é mais possível e o conjunto de fatos inicias não pode ser observado, a pergunta não pode ser respondida. 
+
+**Código**
+
+O código disponível em [link](https://github.com/correiajoao/IA-PPGI-2019.2/tree/master/src/main/java/inferenceEngine) foi escrito em Java e simula um engenho de inferência que recebe expressões do tipo SE ... ENTÃO ... (P -> Q) que utilizando **encadeamento para frente**, realiza inferências.

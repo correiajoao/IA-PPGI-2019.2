@@ -59,6 +59,19 @@ Resolução da questão cinco.
 
 **6º**
 
+Alguns tipos de problema podem se beneficiar de um encademanto misto. Por exemplo, tendo um conjunto de fatos pode-se gerar uma hipótese inicial e em seguida essa hipótese pode ser verificada. Esse tipo de estratégia pode ser benéfica em relação ao tempo de inferência e processamento, porém pode trazer prejuizo nos piores casos de execução.
+
+Uma outra alternativa é executar ambos os encadeamentos em paralelo, utilizando a resposta do primeiro a responder. Essa estratégia traz um sobrecarga de processamento, porém pode se beneficiar do tempo de execução do mais rápido.
+
+Um algoritmo para encadeamento misto pode funcionar da seguinte maneira:
+
+* O sistema é alimentado com um conjunto de fatos.
+* O encadeamento para frente gera uma hipótese de acordo com os fatos. 
+* Essa nova hipótese é verificada através do encademanto para trás.
+* Se a hipótese for verificada, o processamento finaliza.
+* Caso contrário, o algoritmo volta ao encadeamento para frente partindo da hipótese.
+
+Uma aplicação clara que se beneficia do encadeamento misto é o diagnóstico médico. Onde hipóteses sobre a doença podem ser verificadas utilizando encadeamento para frente e testadas através do enadeamento para trás.
 
 **7º**
 
